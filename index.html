@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <form action="/add_account" method="post">
+        <input type="text" name="name" placeholder="Account Name" required>
+        <input type="text" name="image" placeholder="Image URL" required>
+        <input type="text" name="link" placeholder="Profile Link" required>
+        <button type="submit">Add Account</button>
+    </form>
+    <hr>
+    <h2>Accounts</h2>
+    <ul>
+        {% for account in accounts %}
+        <li>
+            <img src="{{ account.image }}" alt="{{ account.name }}" width="50">
+            <a href="{{ account.link }}" target="_blank">{{ account.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
